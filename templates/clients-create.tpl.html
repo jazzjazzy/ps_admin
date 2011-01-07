@@ -1,0 +1,64 @@
+{*FORM-HEADER*}
+<link media="print" rel="stylesheet" href="css/bulkprint.css" type="text/css">
+<div id="row1">
+	<h1><div id="staff-title">{*title*}</div><div style="clear:both;"></div></h1>
+	<div class="container">
+		<div class="content">
+		<div  class="tab" style="width:400px;float:left">
+			<div id="tab-header">
+				<h1>New Account</h1>
+			</div>
+			<div id="tab-text">
+				Information about the element, create, Modify and delete dates 
+			</div>
+			<div id="tab-body">
+				<div class="noprint">{*FUNCTION*}</div><br class="clear">
+				<div class="label">Business Name : </div><div class="value">{*business_name*}{*err_business_name*}</div><br class="clear"/>
+				<div class="label">ABN :</div><div class="value">{*ABN*}{*err_ABN*}</div><br class="clear"/>
+				<div class="label">address :</div><div class="value">{*address*}{*err_address*}</div><br class="clear"/>
+				<div class="label">Suburb :</div><div class="value">{*suburb*}{*err_suburb*}</div><br class="clear"/>
+				<div class="label">state :</div><div class="value">{*state*}{*err_state*}</div><br class="clear"/>
+				<div class="label">postcode :</div><div class="value">{*postcode*}{*err_postcode*}</div><br class="clear"/>
+				<div class="label">phone :</div><div class="value">{*phone*}{*err_phone*}</div><br class="clear"/>
+				<div class="label">fax :</div><div class="value">{*fax*}{*err_fax*}</div><br class="clear"/>
+				<div class="label">Account :</div><div class="value">{*account_name*}{*err_account_name*}</div><br class="clear"/>
+				<div class="label">Database :</div><div class="value">{*database_host*}{*err_database_host*}</div><br class="clear"/>
+				Users Details<br />
+				<div class="label">user_name :</div><div class="value">{*user_name*}{*err_user_name*}</div><br class="clear"/>
+				<div class="label">password :</div><div class="value">{*user_password*}{*err_user_password*}</div><br class="clear"/>
+			</div>
+			<div id="tab-foot"></div>
+		</div>
+		<div  class="tab" style="min-width:300px;float:left">
+			<div id="tab-header">
+				<h1>Connection Strings</h1>
+			</div>
+			<div id="tab-text">
+				Connection strings used by {*title*}
+			</div>
+			<div id="tab-body">
+				{*server*}<br class="clear">
+			</div>
+			<div id="tab-foot"></div>
+		</div>
+		</div>
+		
+		<div  class="tab" style="min-width:300px;float:left">
+			<div id="tab-header">
+				<h1>User list</h1>
+			</div>
+			<div id="tab-text">
+				List of users for {*title*}
+			</div>
+			<div id="tab-body">
+				{*user*}<br class="clear">
+			</div>
+			<div id="tab-foot"></div>
+		</div>
+		</div>
+		{*COMMENTS*}
+		{*pageinfo*}
+	</div>
+	{*FORM-FOOTER*}
+</div>
+{*pbreak*}{*pbreakend*}

@@ -1,0 +1,20 @@
+{*FORM-HEADER*}
+<link media="print" rel="stylesheet" href="css/bulkprint.css" type="text/css">
+<div id="row1">
+	<h1><div id="staff-title">{*page_title*}</div><div style="clear:both;"></div></h1>
+	<div class="container">
+		<div class="content">
+			<div class="label">Details :</div><div class="value">{*connection_details*}{*err_connection_details*}</div><br class="clear"/>
+			<div class="label">server_host :</div><div class="value">{*server_host*}{*err_server_host*}</div><br class="clear"/>
+			<div class="label">server_port :</div><div class="value">{*server_port*}{*err_server_port*}</div><br class="clear"/>
+			<div class="label">server_database :</div><div class="value">{*server_database*}{*err_server_database*}</div><br class="clear"/>
+			<div class="label">server_type :</div><div class="value">{*server_type*}{*err_server_type*}</div><br class="clear"/>
+			<div class="noprint">{*FUNCTION*}</div>
+			{*dsn*}
+		</div>
+		{*COMMENTS*}
+		{*pageinfo*}
+	</div>
+	{*FORM-FOOTER*}
+</div>
+{*pbreak*}{*pbreakend*}
