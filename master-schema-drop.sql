@@ -5,7 +5,7 @@
 # Project name:                                                          #
 # Author:                                                                #
 # Script type:           Database drop script                            #
-# Created on:            2011-01-01 10:46                                #
+# Created on:            2011-02-01 09:54                                #
 # ---------------------------------------------------------------------- #
 
 
@@ -13,23 +13,23 @@
 # Drop foreign key constraints                                           #
 # ---------------------------------------------------------------------- #
 
-ALTER TABLE `jobs` DROP FOREIGN KEY `role_jobs`;
+ALTER TABLE `advertisement` DROP FOREIGN KEY `role_advertisement`;
 
-ALTER TABLE `jobs` DROP FOREIGN KEY `category_jobs`;
+ALTER TABLE `advertisement` DROP FOREIGN KEY `category_advertisement`;
 
-ALTER TABLE `jobs` DROP FOREIGN KEY `office_jobs`;
+ALTER TABLE `advertisement` DROP FOREIGN KEY `office_advertisement`;
 
-ALTER TABLE `jobs` DROP FOREIGN KEY `department_jobs`;
+ALTER TABLE `advertisement` DROP FOREIGN KEY `department_advertisement`;
 
-ALTER TABLE `jobs` DROP FOREIGN KEY `state_jobs`;
+ALTER TABLE `advertisement` DROP FOREIGN KEY `state_advertisement`;
 
-ALTER TABLE `jobs` DROP FOREIGN KEY `store_jobs`;
+ALTER TABLE `advertisement` DROP FOREIGN KEY `store_advertisement`;
 
-ALTER TABLE `jobs` DROP FOREIGN KEY `jobs_question_jobs`;
+ALTER TABLE `advertisement` DROP FOREIGN KEY `advertisement_question_advertisement`;
 
-ALTER TABLE `jobs` DROP FOREIGN KEY `questionTracking_jobs`;
+ALTER TABLE `advertisement` DROP FOREIGN KEY `storerole_advertisement`;
 
-ALTER TABLE `jobs` DROP FOREIGN KEY `storerole_jobs`;
+ALTER TABLE `advertisement` DROP FOREIGN KEY `questionTracking_advertisement`;
 
 ALTER TABLE `department` DROP FOREIGN KEY `office_department_department`;
 
@@ -39,11 +39,11 @@ ALTER TABLE `store` DROP FOREIGN KEY `state_store`;
 
 ALTER TABLE `question` DROP FOREIGN KEY `question_multi_question`;
 
-ALTER TABLE `question` DROP FOREIGN KEY `jobs_question_question`;
-
-ALTER TABLE `question` DROP FOREIGN KEY `questionTracking_question`;
+ALTER TABLE `question` DROP FOREIGN KEY `advertisement_question_question`;
 
 ALTER TABLE `question` DROP FOREIGN KEY `question_catagory_question`;
+
+ALTER TABLE `question` DROP FOREIGN KEY `questionTracking_question`;
 
 ALTER TABLE `applications_question` DROP FOREIGN KEY `question_applications_question`;
 
@@ -51,7 +51,7 @@ ALTER TABLE `office_department` DROP FOREIGN KEY `office_office_department`;
 
 ALTER TABLE `application` DROP FOREIGN KEY `applications_question_application`;
 
-ALTER TABLE `application` DROP FOREIGN KEY `jobs_application`;
+ALTER TABLE `application` DROP FOREIGN KEY `advertisement_application`;
 
 ALTER TABLE `application` DROP FOREIGN KEY `referral_application`;
 
@@ -85,9 +85,41 @@ ALTER TABLE `users` DROP FOREIGN KEY `division_users`;
 
 ALTER TABLE `users` DROP FOREIGN KEY `administration_users`;
 
-ALTER TABLE `referral_cost` DROP FOREIGN KEY `jobs_referral_cost`;
+ALTER TABLE `referral_cost` DROP FOREIGN KEY `advertisement_referral_cost`;
 
 ALTER TABLE `referral_cost` DROP FOREIGN KEY `referral_referral_cost`;
+
+# ---------------------------------------------------------------------- #
+# Drop table "template"                                                  #
+# ---------------------------------------------------------------------- #
+
+# Remove autoinc for PK drop #
+
+ALTER TABLE `template` MODIFY `template_id` BIGINT NOT NULL;
+
+# Drop constraints #
+
+ALTER TABLE `template` DROP PRIMARY KEY;
+
+# Drop table #
+
+DROP TABLE `template`;
+
+# ---------------------------------------------------------------------- #
+# Drop table "employmenttype"                                            #
+# ---------------------------------------------------------------------- #
+
+# Remove autoinc for PK drop #
+
+ALTER TABLE `employmenttype` MODIFY `employmenttype_id` INTEGER NOT NULL;
+
+# Drop constraints #
+
+ALTER TABLE `employmenttype` DROP PRIMARY KEY;
+
+# Drop table #
+
+DROP TABLE `employmenttype`;
 
 # ---------------------------------------------------------------------- #
 # Drop table "referral_cost"                                             #
@@ -122,22 +154,6 @@ ALTER TABLE `applicantion_notes` DROP PRIMARY KEY;
 DROP TABLE `applicantion_notes`;
 
 # ---------------------------------------------------------------------- #
-# Drop table "template"                                                  #
-# ---------------------------------------------------------------------- #
-
-# Remove autoinc for PK drop #
-
-ALTER TABLE `template` MODIFY `template_id` BIGINT NOT NULL;
-
-# Drop constraints #
-
-ALTER TABLE `template` DROP PRIMARY KEY;
-
-# Drop table #
-
-DROP TABLE `template`;
-
-# ---------------------------------------------------------------------- #
 # Drop table "application"                                               #
 # ---------------------------------------------------------------------- #
 
@@ -160,24 +176,24 @@ ALTER TABLE `application` DROP PRIMARY KEY;
 DROP TABLE `application`;
 
 # ---------------------------------------------------------------------- #
-# Drop table "jobs"                                                      #
+# Drop table "advertisement"                                             #
 # ---------------------------------------------------------------------- #
 
 # Remove autoinc for PK drop #
 
-ALTER TABLE `jobs` MODIFY `job_id` BIGINT NOT NULL;
+ALTER TABLE `advertisement` MODIFY `advertisement_id` BIGINT NOT NULL;
 
 # Drop constraints #
 
-ALTER TABLE `jobs` ALTER COLUMN `cover_letter` DROP DEFAULT;
+ALTER TABLE `advertisement` ALTER COLUMN `cover_letter` DROP DEFAULT;
 
-ALTER TABLE `jobs` ALTER COLUMN `status` DROP DEFAULT;
+ALTER TABLE `advertisement` ALTER COLUMN `status` DROP DEFAULT;
 
-ALTER TABLE `jobs` DROP PRIMARY KEY;
+ALTER TABLE `advertisement` DROP PRIMARY KEY;
 
 # Drop table #
 
-DROP TABLE `jobs`;
+DROP TABLE `advertisement`;
 
 # ---------------------------------------------------------------------- #
 # Drop table "users"                                                     #
@@ -273,10 +289,6 @@ DROP TABLE `department`;
 # Drop table "administration"                                            #
 # ---------------------------------------------------------------------- #
 
-# Remove autoinc for PK drop #
-
-ALTER TABLE `administration` MODIFY `administration_id` INTEGER NOT NULL COMMENT 'primary id for the table';
-
 # Drop constraints #
 
 ALTER TABLE `administration` DROP PRIMARY KEY;
@@ -291,7 +303,7 @@ DROP TABLE `administration`;
 
 # Remove autoinc for PK drop #
 
-ALTER TABLE `division` MODIFY `division_id` INTEGER NOT NULL COMMENT 'The Divisionkey for the divisions table ';
+ALTER TABLE `division` MODIFY `division_id` INTEGER NOT NULL COMMENT 'The Division key for the divisions table ';
 
 # Drop constraints #
 
@@ -426,16 +438,16 @@ ALTER TABLE `office_department` DROP PRIMARY KEY;
 DROP TABLE `office_department`;
 
 # ---------------------------------------------------------------------- #
-# Drop table "jobs_question"                                             #
+# Drop table "advertisement_question"                                    #
 # ---------------------------------------------------------------------- #
 
 # Drop constraints #
 
-ALTER TABLE `jobs_question` DROP PRIMARY KEY;
+ALTER TABLE `advertisement_question` DROP PRIMARY KEY;
 
 # Drop table #
 
-DROP TABLE `jobs_question`;
+DROP TABLE `advertisement_question`;
 
 # ---------------------------------------------------------------------- #
 # Drop table "question_multi"                                            #
